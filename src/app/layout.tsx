@@ -21,6 +21,10 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
+
+  verification: {
+    google: "NG2nFQD37oc9ccjwaUouvEjoM2vgCy_X3o6Cr3w2lTo",
+  },
 };
 
 const personSchema = {
