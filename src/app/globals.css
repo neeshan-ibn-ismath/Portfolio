@@ -47,3 +47,50 @@ strong{color:var(--ink);font-weight:500}.site{overflow:clip}.reading-progress{po
 @keyframes clip-scan{0%,100%{left:4%;opacity:.4}50%{left:96%;opacity:1}}
 @media(max-width:1000px){.clip-studio{grid-template-columns:1fr}.clip-diagram{margin:0 32px 32px}.clip-outputs{height:155px}.clip-format.landscape{max-width:210px}.clip-format.square{max-width:130px}}
 @media(max-width:700px){.clip-diagram{margin:0 20px 25px;padding:18px}.clip-diagram-heading{flex-direction:column;gap:6px}.clip-diagram-footer{gap:6px}.clip-outputs{gap:12px;height:128px}.clip-format.portrait{height:110px}.clip-format>span{top:6px;left:6px}.clip-format>b{font-size:16px}.clip-ruler>span:nth-child(2){font-size:11px}}
+
+/* Style the name and tagline independently of their SEO heading levels. */
+.hero-copy {
+  min-width: 0;
+}
+
+.hero-copy h1 {
+  margin: 24px 0 18px;
+  font-size: clamp(24px, 2.3vw, 32px);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.8px;
+}
+
+.hero-tagline {
+  margin: 0 0 26px;
+  font-size: clamp(54px, 5.9vw, 88px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -4px;
+}
+
+@media (min-width: 701px) and (max-width: 1000px) {
+  .hero-tagline {
+    font-size: clamp(43px, 5.8vw, 62px);
+    letter-spacing: -3px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-copy h1 {
+    margin: 22px 0 18px;
+    font-size: 26px;
+  }
+
+  .hero-tagline {
+    font-size: clamp(43px, 10vw, 68px);
+    letter-spacing: -2.5px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-tagline {
+    font-size: clamp(36px, 11.3vw, 43px);
+    letter-spacing: -2px;
+  }
+}

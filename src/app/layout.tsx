@@ -1,10 +1,56 @@
 import type { Metadata } from "next";
 import "./globals.css";
+
 export const metadata: Metadata = {
- title: "Neeshan Ismath — Software Engineer",
- description: "Software engineer based in Sri Lanka. Explore Neeshan Ismath’s work in full-stack development, local AI, and quality engineering.",
- icons: { icon: "/icon.svg" },
+  metadataBase: new URL("https://neeshan-ismath.vercel.app"),
+
+  title: "Neeshan Ismath | Software Engineer & Business Analyst",
+
+  description:
+    "Neeshan Ismath is a Software Engineer and Business Analyst based in Sri Lanka, experienced in full-stack development, quality assurance, AI-powered applications, and software projects.",
+
+  alternates: {
+    canonical: "/",
+  },
+
+  icons: {
+    icon: "/icon.svg",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
-export default function RootLayout({ children }: Readonly<{children: React.ReactNode}>) {
- return <html lang="en"><body>{children}</body></html>;
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Neeshan Ismath",
+  url: "https://neeshan-ismath.vercel.app",
+  jobTitle: ["Software Engineer", "Business Analyst"],
+  sameAs: [
+    "https://www.linkedin.com/in/neeshan-ismath-131282290/",
+    "https://github.com/neeshan-ibn-ismath",
+  ],
+};
+
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
+  return (
+    <html lang="en">
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personSchema).replace(/</g, "\\u003c"),
+          }}
+        />
+        {children}
+      </body>
+    </html>
+  );
 }
