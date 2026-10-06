@@ -102,6 +102,3 @@ strong{color:var(--ink);font-weight:500}.site{overflow:clip}.reading-progress{po
 .core{width:200px;line-height:0;font-size:0;letter-spacing:normal;text-shadow:none}
 .personal-mark{width:180px;height:180px;font-size:0;letter-spacing:normal;margin:35px 0 15px}
 @media(max-width:700px){.brand{width:50px}.core{width:180px}}
-
-/* Blend away the artwork's black matte on every dark site surface. */
-.brand,.core,.personal-mark{mix-blend-mode:screen}

@@ -11,7 +11,7 @@ const linkedin = "https://www.linkedin.com/in/neeshan-ismath-131282290/";
 const filters = ["All projects", "AI & automation", "Full stack"] as const;
 
 function Logo() {
-  return <Image className="logo-image" src="/images/ni-logo.png" width={660} height={660} alt="" sizes="200px" />;
+  return <Image className="logo-image" src="/images/ni-logo-transparent.svg" width={660} height={660} alt="" sizes="200px" />;
 }
 
 function Reveal({ children, className = "" }: { children: React.ReactNode; className?: string }) {
