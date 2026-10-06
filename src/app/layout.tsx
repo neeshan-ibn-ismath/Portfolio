@@ -40,6 +40,14 @@ const personSchema = {
   ],
 };
 
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Neeshan Ismath",
+  alternateName: "Neeshan Ismath Portfolio",
+  url: "https://neeshan-ismath.vercel.app/",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -54,6 +62,14 @@ export default function RootLayout({
             __html: JSON.stringify(personSchema).replace(/</g, "\\u003c"),
           }}
         />
+
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema).replace(/</g, "\\u003c"),
+          }}
+        />
+
         {children}
       </body>
     </html>
