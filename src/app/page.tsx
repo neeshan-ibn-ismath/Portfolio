@@ -10,6 +10,10 @@ const github = "https://github.com/neeshan-ibn-ismath";
 const linkedin = "https://www.linkedin.com/in/neeshan-ismath-131282290/";
 const filters = ["All projects", "AI & automation", "Full stack"] as const;
 
+function Logo() {
+  return <Image className="logo-image" src="/images/ni-logo.png" width={660} height={660} alt="" sizes="200px" />;
+}
+
 function Reveal({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const reduced = useReducedMotion();
   return <motion.div className={className} initial={{ y: reduced ? 0 : 22 }} whileInView={{ y: 0 }} viewport={{ once: true, amount: .12 }} transition={{ duration: .65, ease: [.22, 1, .36, 1] }}>{children}</motion.div>;
@@ -74,7 +78,7 @@ export default function Home() {
       <a className="skip-link" href="#main">Skip to content</a>
       <motion.div className="reading-progress" style={{ scaleX: reduceMotion ? scrollYProgress : progress }} aria-hidden="true" />
       <header className="nav shell" id="home">
-        <a className="brand" href="#home" aria-label="Neeshan Ismath home">n<span>i</span><b>.</b></a>
+        <a className="brand" href="#home" aria-label="Neeshan Ismath home"><Logo /></a>
         <nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Let’s talk</a></nav>
       </header>
       <main id="main">
@@ -101,7 +105,7 @@ export default function Home() {
           </div>
           <div className="hero-art" aria-hidden="true">
             <div className="art-grid" /><div className="orbit o1" /><div className="orbit o2" /><div className="orbit o3" /><div className="orbit o4" />
-            <div className="core">n<span>i</span><b>.</b></div><span className="coordinate top">IDEAS / SYSTEMS / EXPERIENCES</span>
+            <div className="core"><Logo /></div><span className="coordinate top">IDEAS / SYSTEMS / EXPERIENCES</span>
             <div className="art-note"><span>01 / THE APPROACH</span><p>Curiosity in.<br />Possibility out.</p></div><span className="coordinate bottom">BASED IN SRI LANKA</span>
           </div>
         </section>
@@ -133,7 +137,7 @@ export default function Home() {
         </section>
 
         <section className="about-section" id="about" aria-labelledby="about-title"><div className="shell about-grid">
-          <Reveal><p className="eyebrow">02 / A LITTLE ABOUT ME</p><h2 id="about-title">The person<br />behind the <em>code.</em></h2><div className="personal-mark" aria-hidden="true">N<span>i</span><b>✳</b></div><p className="location">MAWANELLA, SRI LANKA</p></Reveal>
+          <Reveal><p className="eyebrow">02 / A LITTLE ABOUT ME</p><h2 id="about-title">The person<br />behind the <em>code.</em></h2><div className="personal-mark" aria-hidden="true"><Logo /></div><p className="location">MAWANELLA, SRI LANKA</p></Reveal>
           <Reveal className="about-copy"><p className="about-lead">Curious by nature.<br />An engineer by practice.</p><p>I’m Neeshan, an Information Technology graduate from the University of Moratuwa. My work spans frontend development, backend systems, and quality assurance.</p><p>I enjoy connecting the pieces: an interface that feels right, an API that makes sense, and the testing that helps it hold together. Lately, I’ve been exploring how local AI can become part of useful everyday tools.</p><div className="education"><span className="small-label">EDUCATION</span><h3>BSc (Hons) in Information Technology</h3><p>University of Moratuwa <span>2022–2026</span></p></div><p className="outside-code">Away from the keyboard: <span>gaming, PC building, badminton & travelling.</span></p><a href="/Neeshan-Ismath-CV.pdf" className="button outline" download>Download my CV</a></Reveal>
         </div></section>
 
@@ -151,7 +155,7 @@ export default function Home() {
 
         <section className="contact-section shell" id="contact" aria-labelledby="contact-title"><Reveal><p className="eyebrow">05 / WHAT’S NEXT?</p><div className="contact-heading"><h2 id="contact-title">Good things start<br />with a <em>conversation.</em></h2><span className="contact-star" aria-hidden="true">✳</span></div><div className="contact-bottom"><div><p>Have a project in mind or a role worth exploring?<br />I’d love to hear about it.</p><a className="email-link" href={`mailto:${email}`}>{email}</a></div><div className="contact-actions"><a className="button primary" href={`mailto:${email}`}>Say hello</a><button className="button outline" onClick={copyEmail}>{copied ? "Email copied ✓" : "Copy email"}</button><span className="copy-status" role="status">{copyError ? "Please select and copy the email address above." : copied ? "Copied to clipboard." : ""}</span></div></div></Reveal></section>
       </main>
-      <footer className="footer shell"><div><a className="brand" href="#home" aria-label="Back to top">n<span>i</span><b>.</b></a><span>© {new Date().getFullYear()} Neeshan Ismath</span></div><div className="footer-links"><a href={github} target="_blank" rel="noopener noreferrer">GitHub</a><a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a><button onClick={() => setPaused(!paused)} aria-pressed={paused}>{paused ? "Enable motion" : "Pause motion"}</button><a href="#home">Back to top</a></div></footer>
+      <footer className="footer shell"><div><a className="brand" href="#home" aria-label="Back to top"><Logo /></a><span>© {new Date().getFullYear()} Neeshan Ismath</span></div><div className="footer-links"><a href={github} target="_blank" rel="noopener noreferrer">GitHub</a><a href={linkedin} target="_blank" rel="noopener noreferrer">LinkedIn</a><button onClick={() => setPaused(!paused)} aria-pressed={paused}>{paused ? "Enable motion" : "Pause motion"}</button><a href="#home">Back to top</a></div></footer>
       <dialog ref={dialog} className="project-dialog" aria-labelledby="dialog-title" onClose={() => setSelected(null)} onClick={e => { if (e.target === e.currentTarget) closeProject(); }}>
         {selected && <div className="dialog-content"><div className="dialog-top"><span className="eyebrow">PROJECT / {selected.number}</span><button className="close-button" onClick={closeProject} aria-label="Close project">✕</button></div><p className="project-kicker">{selected.label}</p><h2 id="dialog-title">{selected.title}<em>.</em></h2><p className="dialog-role">{selected.role}</p><p className="dialog-overview">{selected.overview}</p><div className="tags">{selected.tags.map(tag => <span key={tag}>{tag}</span>)}</div>{selected.id === "clip-studio" && <Image src="/images/clip-studio-workspace.png" alt="Clip Studio workspace with video upload, link import, and clip export workflow" width={2559} height={1271} className="dialog-image" />}<div className="case-details">{selected.details.map((detail, i) => <section key={detail.title}><span>0{i + 1}</span><div><h3>{detail.title}</h3><p>{detail.text}</p></div></section>)}</div>{selected.note && <p className="project-note">{selected.note}</p>}<div className="dialog-actions">{selected.source && <a className="button primary" href={selected.source} target="_blank" rel="noopener noreferrer">View repository</a>}<a className="button outline" href={`mailto:${email}?subject=${encodeURIComponent(`Let’s talk about ${selected.title}`)}`}>Discuss this project</a></div></div>}
       </dialog>

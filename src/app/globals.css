@@ -94,3 +94,11 @@ strong{color:var(--ink);font-weight:500}.site{overflow:clip}.reading-progress{po
     letter-spacing: -2px;
   }
 }
+
+/* Approved ni artwork, shared by every personal brand mark. */
+.logo-image{display:block;width:100%;height:auto}
+.brand{display:block;width:58px;flex-shrink:0;line-height:0;letter-spacing:normal}
+.footer .brand{width:48px}
+.core{width:200px;line-height:0;font-size:0;letter-spacing:normal;text-shadow:none}
+.personal-mark{width:180px;height:180px;font-size:0;letter-spacing:normal;margin:35px 0 15px}
+@media(max-width:700px){.brand{width:50px}.core{width:180px}}
